@@ -91,3 +91,90 @@ for (let i = 0; i < colorsShort.length; i++) {
   }
 }
 console.log(colorsShort); // ["rojo", "azul", "verde", "naranja"];
+
+//#4: Map
+// 4.1 Dado el siguiente array, devuelve un array con sus nombres utilizando .map().
+
+const users = [
+  { id: 1, name: "Abel" },
+  { id: 2, name: "Julia" },
+  { id: 3, name: "Pedro" },
+  { id: 4, name: "Amanda" },
+];
+
+let usersNames = users.map((names) => names.name);
+
+console.log(usersNames);
+
+// 4.2 Dado el siguiente array, devuelve una lista que contenga los valores de la propiedad .name y cambia el nombre a 'Anacleto' en caso de que empiece por 'A'.
+
+const superNames = ["Abel", "Julia", "Pedro", "Amanda"];
+
+/* let usersNamesChange = usersNames.map((names) => {
+  for (let i = 0; i < usersNames.length; i++) {
+    if (usersNames[i].startsWith("A")) {
+      usersNames.replace(names, "Anacleto");
+    }
+  }
+});
+
+console.log(usersNamesChange); */
+
+/* let text = "HELLO WORLD";
+let letter = text.charAt(0); */
+
+// 4.3
+
+// #5: Filter
+// 5.1 Dado el siguiente array, utiliza .filter() para generar un nuevo array con los valores que sean mayor que 18
+
+const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+const biggerAges = ages.filter((age) => age > 18);
+
+// 5.2 Dado el siguiente array, utiliza .filter() para generar un nuevo array con los valores que sean par.
+const parAges = ages.filter((par) => par % 2 === 0);
+
+// 5.3 Dado el siguiente array, utiliza .filter() para generar un nuevo array con los streamers que tengan el gameMorePlayed = 'League of Legends'.
+
+const streamers = [
+  { name: "Rubius", age: 32, gameMorePlayed: "Minecraft" },
+  { name: "Ibai", age: 25, gameMorePlayed: "League of Legends" },
+  { name: "Reven", age: 43, gameMorePlayed: "League of Legends" },
+  { name: "AuronPlay", age: 33, gameMorePlayed: "Among Us" },
+];
+
+const newStreamers = streamers.filter((gmp) => {
+  return gmp.gameMorePlayed === "League of Legends";
+});
+
+// 5.4 Dado el siguiente array, utiliza .filter() para generar un nuevo array  con los streamers que incluyan el caracter 'u' en su propiedad .name. Recomendamos usar la funcion .includes() para la comprobación.
+
+const newStreamersName = streamers.filter((nam) => {
+  if (nam.name.includes("u")) {
+    return nam.name;
+  }
+});
+
+// 5.5 utiliza .filter() para generar un nuevo array con los streamers que incluyan  el caracter 'Legends' en su propiedad .gameMorePlayed. Recomendamos usar la funcion .includes() para la comprobación. Además, pon el valor de la propiedad .gameMorePlayed a MAYUSCULAS cuando .age sea mayor que 35.
+
+const streamersLegend = streamers.filter((legend) => {
+  if (legend.gameMorePlayed.includes("Legends")) {
+    return legend.gameMorePlayed;
+  }
+});
+
+// 5.6 Dado el siguiente html y javascript, utiliza .filter() para mostrar por consola los streamers que incluyan la palabra introducida en el input. De esta forma, si introduzco 'Ru' me deberia de mostrar solo el streamer 'Rubius'. Si introduzco 'i', me deberia de mostrar el streamer 'Rubius' e 'Ibai'.
+let inputText = document.querySelector("input").value;
+
+const myButton = document.querySelector("button");
+
+function myFunction() {
+  let x = streamers.filter((input) => {
+    if (input.name.includes(inputText)) {
+      return input.name;
+    }
+  });
+  console.log(x);
+}
+
+myButton.addEventListener("click", myFunction);
